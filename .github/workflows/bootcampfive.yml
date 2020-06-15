@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: BootCamp Five
+name: React App Auto Update
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -21,20 +21,17 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - name: install NodeJs
+    - name: Installing Nodejs
       uses: actions/setup-node@v2-beta
       with:
         node-version: 12 
     
     - uses: borales/actions-yarn@v2.0.0
       with:
-        cmd: install 
-
-    - name: bulid project
+        cmd: install # will run 'yarn build' command  
+    - name: build React app
       run: yarn build
-    # Installing Surge
     - name: install surge
       run: npm install --global surge
-    # deploy project to surge
-    - name: deploying project to surge
-      run: surge ./build bootcampfive.surge.sh --token ${{secrets.bootcamp_five}}
+    - name: deploy to surge
+      run: surge ./build bootcampfive.surge.sh --token ${{ secrets.bootcamp_five }}
