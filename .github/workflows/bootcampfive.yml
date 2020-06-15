@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: BootCamp Five
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -29,9 +29,13 @@ jobs:
     - uses: borales/actions-yarn@v2.0.0
       with:
         cmd: install  # it will install yarn
+        
+        
     - name: build React App
       run: yarn build
     # Installing Surge
+  
+  
     - name: install surge
       run: npm install --global surge
 
