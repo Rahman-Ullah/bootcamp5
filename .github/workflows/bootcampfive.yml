@@ -28,17 +28,13 @@ jobs:
     
     - uses: borales/actions-yarn@v2.0.0
       with:
-        cmd: install  # it will install yarn
-        
-        
-    - name: build React App
+        cmd: install 
+
+    - name: bulid project
       run: yarn build
     # Installing Surge
-  
-  
     - name: install surge
       run: npm install --global surge
-
     # deploy project to surge
     - name: deploying project to surge
       run: surge ./build bootcampfive.surge.sh --token ${{secrets.bootcamp_five}}
